@@ -1,0 +1,31 @@
+# Steps to Set Up a Maven Project with Selenium
+
+## 1. Create a Maven Project
+- Create a Java project.
+- Use Maven to create the project from an archetype.
+- Select the `maven-archetype-quickstart` archetype.
+    - Use the following details:
+        - Version: `1.4`
+        - Group ID: `com.example`
+        - Artifact ID: `first-maven-project`
+        - Version: `1.0.0`
+        - Confirm with `Y`.
+
+## 2. Rename `App.java` to `Helloworld.java`
+- Rename the `App.java` file to `Helloworld.java`.
+- Copy the Helloworld code into the file (without the `set property`).
+
+## 3. Open `pom.xml` and Add Selenium Dependency
+- Modify the Maven compiler plugin configuration:
+    - Change the Java version from `1.7` to `17`.
+- Go to the [MVN Repository](https://mvnrepository.com/) and search for `Selenium Java 4.31.0`.
+- Copy the XML dependency for Selenium and paste it into the `<dependencies>` section of `pom.xml`.
+
+## 4. MVN Commands
+
+- `mvn compile` | Compila il codice sorgente (`src/main/java`)
+- `mvn test` | Esegue i test unitari (`src/test/java`)
+- `mvn package` | Compila, testa e crea il file `.jar` o `.war` nella cartella `target/`
+- `mvn clean` | Cancella la cartella `target/` e tutti i file generati
+- `mvn install` | Installa il pacchetto nel repository locale (`~/.m2/repository`)
+- `mvn dependency:resolve` | Scarica e aggiorna tutte le dipendenze dichiarate nel `pom.xml`
