@@ -1,23 +1,23 @@
-package Chrome;
+package Edge;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 public class Helloworld {
     public static void main(String[] args) {
         //Not necessary if we are using Selenium WebDriver > 4.6
-        // Imposta il percorso del ChromeDriver
-        // System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        // Imposta il percorso del EdgeDriver
+        // System.setProperty("webdriver.edge.driver", "/usr/bin/msedgedriver");
 
-        // Create the Chrome instance
-        WebDriver driver = new ChromeDriver();
+        // Create the Edge instance
+        WebDriver driver = new EdgeDriver();
 
         // Base URL
         String baseUrl = "https://bonigarcia.dev/selenium-webdriver-java/";
         String expectedTitle = "Hands-On Selenium WebDriver with Java";
         String actualTitle = "";
 
-        // Launch Chrome and open the page
+        // Launch Edge and open the page
         driver.get(baseUrl);
 
         // Get the page title
@@ -30,7 +30,7 @@ public class Helloworld {
             System.out.println("Test Failed!");
         }
 
-        // Close Chrome
+        // Close Edge
         driver.quit();
     }
 }

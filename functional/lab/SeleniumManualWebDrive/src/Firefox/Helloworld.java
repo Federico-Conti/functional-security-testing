@@ -1,7 +1,8 @@
-package Chrome;
+package Firefox;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 
 public class Helloworld {
     public static void main(String[] args) {
@@ -9,15 +10,15 @@ public class Helloworld {
         // Imposta il percorso del ChromeDriver
         // System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 
-        // Create the Chrome instance
-        WebDriver driver = new ChromeDriver();
+        // Create the Firefox instance
+        WebDriver driver = new FirefoxDriver();
 
         // Base URL
         String baseUrl = "https://bonigarcia.dev/selenium-webdriver-java/";
         String expectedTitle = "Hands-On Selenium WebDriver with Java";
         String actualTitle = "";
 
-        // Launch Chrome and open the page
+        // Launch Firefox and open the page
         driver.get(baseUrl);
 
         // Get the page title
@@ -30,7 +31,7 @@ public class Helloworld {
             System.out.println("Test Failed!");
         }
 
-        // Close Chrome
+        // Close Firefox
         driver.quit();
     }
 }
