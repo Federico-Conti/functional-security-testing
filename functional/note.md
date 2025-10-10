@@ -13,6 +13,9 @@
     - [Single-Page Applications (SPA)](#single-page-applications-spa)
   - [AJAX and Asynchronous Communication](#ajax-and-asynchronous-communication)
   - [Key Characteristics of Web Applications](#key-characteristics-of-web-applications)
+- [Web Application Testing Challenges](#web-application-testing-challenges)
+  - [Systematic Black-Box Approach for E2E Testing](#systematic-black-box-approach-for-e2e-testing)
+- [Testing Frameworks](#testing-frameworks)
 
 
 ## Functional vs non-Functional testing
@@ -173,3 +176,88 @@ SPAs represent the most advanced level of this dynamism. Today, the perceived di
 However, this complexity and dynamism create significant challenges for web application testing, which will be addressed in subsequent sections.
 
 
+## Web Application Testing Challenges
+
+Testing web applications presents unique challenges due to their complexity and interconnected nature. Below are the primary difficulties and approaches for different testing levels:
+
+- Unit testing can be challenging due to the high level of interconnection between components. This often necessitates the use of mocking to simulate the behavior of dependent functions or modules.
+- Integration testing is complex because it involves managing test data effectively. The setup and maintenance of test environments can be time-consuming and resource-intensive.
+
+### Systematic Black-Box Approach for E2E Testing
+
+A structured black-box process for generating E2E tests involves the following four phases:
+
+1. **Select User Functions**  
+  - List down the features (user functions) of the system that we want to test.
+
+2. **Build Conditions Based on User Functions**  
+  - Create a set of conditions for each user function selected.
+
+3. **Build Test Scenarios**  
+  - Define test scenarios for the user functions (paths, set of steps, or pages).
+
+4. **Build Multiple Test Cases**  
+  - Develop one or more test cases for each scenario defined. Test cases should include each condition.
+
+Exhaustive testing is impractical due to the explosion of test combinations. Instead, the following techniques are used to reduce the number of test cases while maintaining effectiveness:
+
+1. **Conventional Shortcut**: Select a few representative values for each input.
+2. **Pairwise Testing**: Test all possible pairs of variable values, significantly reducing the number of tests while maintaining a high fault detection rate.
+3. **Boundary Value Analysis**: Focus on values at the boundaries of input partitions, as errors often occur at these limits.
+
+
+## Testing Frameworks
+
+Two main categories of testing frameworks:
+
+**Capture/Replay Frameworks**
+
+- Record the actions performed by the tester using a specific tool/framework
+- Examples: Selenium IDE, Katalon IDE
+- Re-execute recorded actions automatically
+
+**Programmable Testing Frameworks**
+
+- Test scripts are software artifacts created using:
+  - Standard programming languages and IDEs (e.g., Java + VS Code)
+  - Specific web testing frameworks
+- Examples: Selenium WebDriver (+JUnit), TestIM, Katalon Studio
+
+| Tool              | Category         | Language                  | Main Use                     | Features                                      |
+|-------------------|------------------|---------------------------|------------------------------|-----------------------------------------------|
+| Selenium IDE      | Capture/Replay   | No-code                   | Test recording and replay    | Uses .side files, Selenese language           |
+| Selenium WebDriver| Script-based     | Multi-language (Java, Python, etc.) | Automated E2E testing       | Object-oriented API for browser control       |
+
+
+
+
+Selenium WebDriver provides a cross-platform API in different languages
+
+- e.g. Interface WebDriver, methods click(), get(), …
+
+Selenium WebDriver4 uses the native support implemented by each browser to carry out the automation process
+
+For this reason a component called Driver between the script using the Selenium Web‐Driver API and the browser is needed!
+
+
+Selenium WebDriver requires:
+
+1. Download Selenium Library for Java
+2. Download Browser Driver (e.g., Chrome Driver for Chrome)
+   - Compatible with the browser version
+
+But  Manual Driver management is costly in terms of effort and problematic in terms of maintenance
+
+- For this reason, recently some specific libraries able to manage automatically drivers have been devised:
+**WebDriverManager and Selenium Manager**
+
+They are open-source Java libraries able to carry out automatically the management
+
+- download, setup, and maintenance of the drivers required by Selenium WebDriver (e.g.,
+chromedriver, geckodriver, msedgedriver, etc.) in a fully automated manner.
+
+WebDriverManager Process
+
+1. WebDriverManager tries to find the browser version (e.g., Chrome 135) installed in the local machine.  
+2. WebDriverManager determines the correct driver version (e.g., chromedriver 135.0.4389.23) and, if not locally present, downloads it.  
+3. WebDriverManager exports the downloaded driver path using the proper Java system property (i.e., `webdriver.chrome.driver`).  
